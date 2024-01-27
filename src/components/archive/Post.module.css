@@ -1,0 +1,32 @@
+.postWrap {
+    padding-top : 1em;
+    line-height: 1.5;
+
+}
+
+.postTitle {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+    font-family: NexonLv1;
+    line-height: initial;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 1.75em;
+    color : rgb(93,144,163);
+    font-weight: bold;
+    cursor : pointer;
+    width: fit-content;
+}
+
+.postDate {
+    margin : 0 0 4px;
+    font-size: 0.8em;
+    color : rgb(122, 130, 136);
+}
+
+.postContent {
+    color : rgb(77, 86, 94);
+    border-bottom: 0.15em solid #f2f3f3;
+    padding-bottom: 0.75em;
+}

@@ -1,0 +1,10 @@
+.categoryList {
+    color: black;
+    font-size: 1em;
+    text-decoration: none;
+
+    span {
+        font-size: 0.9em;
+        opacity: 0.6;
+    }
+}

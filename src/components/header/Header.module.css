@@ -1,0 +1,23 @@
+.headerWrap {
+    position: relative;
+    border-bottom: 1px solid #f2f3f3;
+    z-index: 20;
+}
+
+.headerWrapInner {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerTitle {
+    font-family: "Cafe24Moya";
+    text-decoration: none;
+    word-break: keep-all;
+    font-size: 3em;
+    color:#6f777d;
+}

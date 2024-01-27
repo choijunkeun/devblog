@@ -1,0 +1,43 @@
+.navbarWrap {
+    flex: 1 0 auto;
+    float: left;
+    width: calc(250px - 1em);
+    position: initial;
+}
+
+.navbarWrapInner {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.navbarContents {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+    font-family: NexonLv1;
+}
+
+.categoryTitle {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.25rem 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 2px solid #f2f3f3;
+    text-transform: uppercase;
+}
+
+.categoryWrap {
+    ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+    }
+    ul > li {
+        line-height: 1.7;
+    }
+}
+

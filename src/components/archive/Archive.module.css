@@ -1,0 +1,15 @@
+.archiveWrap {
+    margin-bottom: 2em;
+    padding: 1em;
+    width: calc(100% - 250px);
+    float: right;
+}
+
+.headerTitle {
+    padding-bottom : 1em; 
+    border-bottom: 0.125em solid #f2f3f3;
+    margin-top: 0;
+    line-height: 1.5;
+    word-break: keep-all;
+    color: rgb(62, 65, 68);
+}

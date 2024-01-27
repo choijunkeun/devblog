@@ -1,0 +1,38 @@
+.authorWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.authorImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 180px;
+    max-height: 180px;
+    overflow: hidden;
+    border-radius: 70%;
+    border: 1px solid #DCDCDC;
+    
+}
+
+.authorImg > img {
+    object-fit: hidden;
+    width:100%;
+    height: 100%;
+}
+
+.authorContent {
+    line-height: 1;
+    text-align: center;
+}
+
+.ahthorBio {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.ahthorBio > li {
+    margin: 10px 0px;
+}
