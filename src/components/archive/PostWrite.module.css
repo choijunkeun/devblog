@@ -66,19 +66,7 @@ input::placeholder {
     font-weight: bold;
 }
 
-.mdSave {
-    margin: 1em;
+.mdBtn {
     text-align: center;
     padding-top: 0.7em;
-}
-
-.mdSaveBtn {
-    width: 5em;
-    font-family: "Cafe24Moya";
-    font-size: 1.5em;
-    font-style: italic;
-    border-radius: 8px;
-    line-height: 1.5;
-    cursor: pointer;
-    
 }
