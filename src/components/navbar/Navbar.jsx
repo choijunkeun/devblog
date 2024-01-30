@@ -2,6 +2,7 @@ import styles from "./Navbar.module.css";
 import Author from "./author/Author";
 import Category from "./category/Category";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 import { AiOutlineSetting } from "react-icons/ai"
 
@@ -19,6 +20,12 @@ const Navbar = () => {
     ];
 
     const [categories, SetCategories] = useState(tempCateItem);
+    const navigate = useNavigate();
+
+    const btnWritePage = () => {
+        navigate("/write"); 
+    }
+
     return (
         <div className={styles.navbarWrap}>
             <div className={styles.navbarWrapInner}>
@@ -26,7 +33,7 @@ const Navbar = () => {
                     <Author />
                     <div className={styles.categoryWrap}>
                         <span className={styles.categoryTitle}>
-                            Category <AiOutlineSetting />
+                            Category <AiOutlineSetting onClick={ btnWritePage }/>
                         </span>
                         <ul>
                             {

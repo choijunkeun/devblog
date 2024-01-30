@@ -1,0 +1,84 @@
+.mdWrap {
+    float: right;
+    width: calc(100% - 280px);
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.mdTitleWrap {
+    display: flex;
+    align-items: center;
+}
+
+.mdTitle {
+    width: calc(100% - 280px);
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+input {
+    font-family: 'Noto Sans KR', 'Noto Sans Korean', "Nanum Gothic", sans-serif !important;
+    font-style: italic;
+    border: 0;
+    outline: none;
+    font-size: 10px;
+}
+
+input::placeholder {
+    color: #d9d9d9
+}
+
+.mdTitleInput {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px auto;
+    position: relative;
+    float: left
+}
+
+.mdTitleInput label {
+    display: inline-block;
+    position: absolute;
+    top: -5px;
+    left: 14px;
+    padding: 10px;
+    background: white;
+    font-size: 15px;
+    color: #888;
+    font-weight: bold;
+}
+
+.mdTitleInput label span {
+    color: #da4841;
+    vertical-align: -1px;
+}
+
+.mdTitleInput input {
+    width: 100%;
+    border: 1px solid #dddddd !important;
+    font-size: 1.5rem;
+    line-height: 1.45;
+    letter-spacing: -0.04rem;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.mdSave {
+    margin: 1em;
+    text-align: center;
+    padding-top: 0.7em;
+}
+
+.mdSaveBtn {
+    width: 5em;
+    font-family: "Cafe24Moya";
+    font-size: 1.5em;
+    font-style: italic;
+    border-radius: 8px;
+    line-height: 1.5;
+    cursor: pointer;
+    
+}
