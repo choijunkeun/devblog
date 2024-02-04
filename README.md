@@ -12,9 +12,14 @@
 - 포트폴리오
 
 ## 프로젝트 미리보기
+### 게시글 작성
 <img width="858" alt="스크린샷 2024-02-04 오전 11 51 18" src="https://github.com/choijunkeun/devblog/assets/86010302/92a3c5ca-c4ca-41d3-b787-aa0dc5727c0d">
 
+### 게시글 조회
+![read](https://github.com/choijunkeun/devblog/assets/86010302/4b27ec2c-d968-4eb7-9b88-3a57a38adba2)
+
 ## 개발환경
+
 - IntelliJ
 - Visual Studio Code
 - GitHub
