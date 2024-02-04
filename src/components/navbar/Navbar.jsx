@@ -1,30 +1,42 @@
 import styles from "./Navbar.module.css";
 import Author from "./author/Author";
 import Category from "./category/Category";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
 import { AiOutlineSetting } from "react-icons/ai"
+import axios from "axios";
 
 const Navbar = () => {
      // nav바 카테고리 정보 가져오기
-     const tempCateItem = [
-        { key: "all", title: "ALL", count: 102 },
-        { key: "html", title: "HTML", count: 7 },
-        { key: "css", title: "CSS", count: 5 },
-        { key: "javascript", title: "JavaScript", count: 13 },
-        { key: "react", title: "React", count: 9 },
-        { key: "java", title: "JAVA", count: 28 },
-        { key: "spring", title: "Spring", count: 22 },
-        { key: "spring-data-jpa", title: "Spring Data JPA", count: 18 },
+     const categoryItem = [
+        { key: "all", title: "ALL", count: 3 },
     ];
 
-    const [categories, SetCategories] = useState(tempCateItem);
+    const [categories, SetCategories] = useState(categoryItem);
     const navigate = useNavigate();
+
+    const getCategories = async () => {
+        await axios.get("http://localhost:80/categories")
+        .then((response) => {
+            console.log(response);
+
+            let cateCopy = [...categories, ...response];
+            SetCategories(cateCopy);
+        })
+        .catch((error) => {
+            console.log("카테고리 불러오기 중 에러 발생 : ", error);
+        })
+    }
+
+    useEffect(()=> {
+        getCategories();
+    })
 
     const btnWritePage = () => {
         navigate("/write"); 
     }
+
 
     return (
         <div className={styles.navbarWrap}>

@@ -9,18 +9,20 @@ import Tag from "./Tag";
 const PostWrite = () => {
     const navigate = useNavigate();
 
+    const [mdText, setMdText] = useState(); // markdown 텍스트 스테이트
+    const [tagList, setTagList] = useState([]); // 태그(카테고리) 리스트
     const [post, setPost] = useState({
         title: "",
-        contents: "",
+        content: "",
+        category: [],
     });
-    const [mdText, setMdText] = useState(); // markdown 텍스트 스테이트
-    const [tagList, setTagList] = useState([]); // 카테고리 리스트
 
     useEffect(() => {
         let postCopy = { ...post };
-        postCopy.contents = mdText;
+        postCopy.content = mdText;
+        postCopy.category = [...tagList];
         setPost(postCopy);
-    }, [mdText]);
+    }, [mdText, tagList]);
 
     const changePost = (event) => {
         let title = event.target.value;
@@ -31,9 +33,13 @@ const PostWrite = () => {
 
     const savePost = async (e) => {
       e.preventDefault();
+      // 유효성 해야함
+
+      // 저장요청
       await axios.post(`http://localhost:80/post`, JSON.stringify(post), { headers: { 'Content-Type': 'application/json' } })
           .then((response)=> {
             console.log("저장됨")
+            console.log(response.data);
             return response.data;
           })
           .catch((error) => {

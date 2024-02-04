@@ -15,8 +15,8 @@ const Layout = ({ children }) => {
                 <Navbar />
                 <Routes>
                 <Route path="/" element={ <div>첫 화면</div>} />
-                <Route path="/:category" element={ <Archive />} />
-                <Route path="/:category/:idx" element={ <PostDetail/> } />
+                <Route path="/posts" element={ <Archive />} />
+                <Route path="/:idx" element={ <PostDetail/> } />
                 <Route path="/write" element={ <PostWrite /> }/>
                 </Routes>
                 </div>

@@ -1,13 +1,16 @@
+import { useEffect } from "react";
 import styles from "./Category.module.css";
 import { Link } from "react-router-dom";
 
 const Category = ({ key, category }) => {
+    // list?sort=popular
+
     return (
         <li>
             <Link
                 key={category.key}
                 className={styles.categoryList}
-                to={`/${category.key}`}
+                to={`/posts?tag=${category.key}`}
             >
                 {category.title}<span>ㆍ({category.count})</span>
             </Link>

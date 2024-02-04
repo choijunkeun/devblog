@@ -3,14 +3,14 @@ import { useState, useEffect, useRef} from 'react'
 import axios from 'axios'
 import styles from './PostDetail.module.css'
 import { AiOutlineCalendar } from "react-icons/ai";
+import MDEditor from '@uiw/react-md-editor';
 
 
 const PostDetail = () => {
-    const {category, idx} = useParams();
-    const {post, setPost} = useState({});
-    const {loading, setLoading} = useState(true);
+    const {idx} = useParams();
+    const [post, setPost] = useState({});
+    const [loading, setLoading] = useState(true);
     console.log("PostDetail()")
-    console.log(category);
     console.log(idx);
 
     // 특정 스크롤 이동(추후 구현)
@@ -18,15 +18,16 @@ const PostDetail = () => {
 
 
     const getPost = async () => {
-        const result = await axios.get(`//localhost:8080/post/${idx}`)
+        const result = await axios.get(`http://localhost:80/post/${idx}`)
         .then((response) => {
+            console.log(response.data);
             setPost(response.data);
             setLoading(false);
         })
     };
 
     useEffect(()=> {
-        // getPost();
+        getPost();
     }, []);
 
     return (
@@ -34,12 +35,12 @@ const PostDetail = () => {
         <div className={styles.detailInnerWrap}>
             <div className='detailHeader'>
                 <h1 className={styles.detailTitle}>
-                    [React] React Hook(리액트 훅) -- 제목
+                    {post.title}
                 </h1>
                 
                 <p className={styles.postDate}>
                     <AiOutlineCalendar />{" "}
-                    April 4, 2023 -- 날짜
+                    Feb 4, 2024
                  </p>
             </div>
 
@@ -50,14 +51,19 @@ const PostDetail = () => {
                             <h4 >On this page</h4>
                         </div>
                         <ul className={styles.tocMenu}>
-                            <li><a href='/'>리액트 훅이란 -- 내용1</a></li>
-                            <li><a href='/'>리액트 훅이란 -- 내용1</a></li>
-                            <li><a href='/'>리액트 훅이란 -- 내용1</a></li>
+                            <li><a href='/'>Skill</a></li>
+                            {/* <li><a href='/'></a></li> */}
+                            {/* <li><a href='/'>리액트 훅이란 -- 내용1</a></li> */}
                         </ul>
                     </div>
                 </div>
                 <div className={styles.detailContent}>
-                    세부내용
+                <div data-color-mode="light" style={{padding:15}}>
+                    <MDEditor.Markdown
+                        style={{ padding: 10 }}
+                        source={post.content}
+                    />
+                </div>
                 </div>
 
             </div>

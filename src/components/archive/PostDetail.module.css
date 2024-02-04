@@ -14,7 +14,7 @@
         margin-right: -230px;
         padding-left: 1em;
         z-index: 10;
-        background-color: red;
+        /* background-color: red; */
     }
 }
 
@@ -26,7 +26,7 @@
     .detailSidebar {
         width: 250px;
         margin-right: -250px;
-        background-color: blue;
+        /* background-color: blue; */
     }
 }
 
