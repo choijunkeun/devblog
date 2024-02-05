@@ -50,7 +50,7 @@
     margin-right: 0;
     width: 100%;
     clear: both;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .detailSidebar {
@@ -81,9 +81,15 @@
 }
 
 .tocMenu > li {
-    font-size: 0.9em;
-    /* display: list-item;
-    list-style: none; */
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+.tocMenu > li:hover {
+    transition: all 0.8s;
+    background-color: rgb(141,219,253);
 }
 
 .tocMenu > li > a {
@@ -99,4 +105,37 @@
 h4 {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.detailFooter {
+    color: #646769;
+    font-size: 0.95em;
+}
+
+.categoryPage {
+    display: inline-block;
+    margin-left: 5px;
+    padding: 0.1em 0.5em;
+    border: 1px solid #b6b6b6;
+    border-radius: 4px;
+}
+
+.pageNation {
+    width: 100%;
+    margin-top: 1em;
+
+}
+
+.pageNationItem {
+    display: block;
+    padding: 0.25em;
+    float: left;
+    width: 50%;
+    font-size: 1.25em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #646769;
+    border: 1px solid #b6b6b6;
+    border-radius: 4px;
 }
