@@ -63,6 +63,11 @@
     padding: 10px;
 }
 
+.tocHeader h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 .toc {
     color: #7a8288;
     background-color: #fff;
@@ -81,10 +86,11 @@
 }
 
 .tocMenu > li {
-    font-size: 1em;
+    font-size: 0.85em;
     font-weight: bold;
     cursor: pointer;
     padding: 0.5em;
+    
 }
 
 .tocMenu > li:hover {
@@ -102,10 +108,6 @@
     border-bottom: 1px solid #f2f3f3;
 }
 
-h4 {
-    margin-top: 0;
-    margin-bottom: 0;
-}
 
 .detailFooter {
     color: #646769;

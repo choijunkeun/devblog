@@ -30,7 +30,7 @@ const Navbar = () => {
     }
 
     useEffect(()=> {
-        getCategories();
+        // getCategories();
     })
 
     const btnWritePage = () => {
