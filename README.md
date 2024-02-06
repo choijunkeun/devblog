@@ -16,7 +16,10 @@
 <img width="858" alt="스크린샷 2024-02-04 오전 11 51 18" src="https://github.com/choijunkeun/devblog/assets/86010302/92a3c5ca-c4ca-41d3-b787-aa0dc5727c0d">
 
 ### 게시글 조회
-![read](https://github.com/choijunkeun/devblog/assets/86010302/4b27ec2c-d968-4eb7-9b88-3a57a38adba2)
+![스크린샷 2024-02-06 오후 11 23 34](https://github.com/choijunkeun/devblog/assets/86010302/2d5f5277-011b-4b5b-a40e-1ad2b2842394)
+
+### 게시글 리스트
+
 
 ## 개발환경
 
