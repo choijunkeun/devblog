@@ -8,8 +8,6 @@ const Archive = () => {
     const [searchParams, setSearchParams] = useSearchParams();
 
     const param = searchParams.get("tag");
-    
-
 
   return (
         <div className={styles.archiveWrap}>
@@ -17,7 +15,6 @@ const Archive = () => {
             {
                 posts.map((post, index)=> {
                     return <Post post={post}/>
-
                 })
             }
         </div>

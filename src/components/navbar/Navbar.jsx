@@ -6,32 +6,36 @@ import { useNavigate } from 'react-router-dom'
 
 import { AiOutlineSetting } from "react-icons/ai"
 import axios from "axios";
+import { useQuery } from "react-query";
 
 const Navbar = () => {
-     // nav바 카테고리 정보 가져오기
-     const categoryItem = [
-        { key: "all", title: "ALL", count: 3 },
-    ];
-
-    const [categories, SetCategories] = useState(categoryItem);
+    const [categories, SetCategories] = useState([]);
     const navigate = useNavigate();
 
-    const getCategories = async () => {
-        await axios.get("http://localhost:80/categories")
-        .then((response) => {
-            console.log(response);
+    const getCategories = useQuery("getCategories", ()=> {
+        axios.get("http://localhost:80/categories").then((response) => {
+            console.log("요청됨");
+            // 데이타 전처리
+            let resData = response.data;
+            let reg = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gim;
+            
+            // 특수문자 제거 및 소문자로 치환해서 카테고리 key로 설정
+            resData.map((category)=> {
+                return category.key = category.name.replace(reg, "").toLowerCase();
+            })
 
-            let cateCopy = [...categories, ...response];
-            SetCategories(cateCopy);
+            // 카테고리 리스트 set
+            console.log("설마");
+            SetCategories(resData);
         })
         .catch((error) => {
-            console.log("카테고리 불러오기 중 에러 발생 : ", error);
+            console.log("카테고리 에러 : ", error);
         })
-    }
+
+    }, { staleTime : 5000 }) 
 
     useEffect(()=> {
-        // getCategories();
-    })
+    }, []);
 
     const btnWritePage = () => {
         navigate("/write"); 

@@ -12,7 +12,7 @@ const Category = ({ key, category }) => {
                 className={styles.categoryList}
                 to={`/posts?tag=${category.key}`}
             >
-                {category.title}<span>ㆍ({category.count})</span>
+                {category.name}<span>ㆍ({category.postCount})</span>
             </Link>
         </li>
     );

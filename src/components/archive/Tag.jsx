@@ -3,38 +3,46 @@ import styled from "styled-components";
 
 const Tag = ({tagList, setTagList}) => {
     const [tagItem, setTagItem] = useState("");
-
-    // 엔터키 이벤트
+    /**
+     * 엔터키 이벤트
+     */
     const handleKeyDown = (e) => {
         if(e.nativeEvent.isComposing) return; // 한글 두번 입력되는 문제로 isComposing이 false일때만 실행
         switch(e.code) {
             case 'Enter' :
-                console.log("tagItem ::" ,tagItem);
-                console.log("tagList ::" ,tagList);
                 submitTagItem();
             break;
             default:
         }
     };
 
-    // 태그 추가
+    /**
+     * 태그 추가
+     */
     const submitTagItem = () => {
-        let duplicateCheck = tagList.includes(tagItem);
-        if(duplicateCheck) {
+        // 태그 중복 검사
+        let duplicateCheck = tagList.filter((tag)=> {
+            return tag.name === tagItem
+        });
+
+        if(duplicateCheck.length !== 0) {
             setTagItem("");
             return;
         }
+
         let updatedTagList = [...tagList];
-        updatedTagList.push(tagItem);
+        updatedTagList.push({name : tagItem});
         setTagList(updatedTagList);
         setTagItem("");
     };
 
-    // 태그 삭제
+    /**
+     * 태그 삭제
+     */
     const deleteTagItem = (e) => {
         const deleteTagItem = e.target.parentElement.firstChild.innerText;
         const filteredTagList = tagList.filter(
-            (tagItem) => tagItem !== deleteTagItem
+            (tagItem) => tagItem.name !== deleteTagItem
         );
         setTagList(filteredTagList);
     };
@@ -44,7 +52,7 @@ const Tag = ({tagList, setTagList}) => {
             {tagList.map((tagItem, index) => {
                 return (
                     <TagItem key={index}>
-                        <Text>{tagItem}</Text>
+                        <Text>{tagItem.name}</Text>
                         <Button onClick={deleteTagItem}> X </Button>
                     </TagItem>
                 );

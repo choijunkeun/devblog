@@ -4,7 +4,7 @@ import Archive from "./components/archive/Archive";
 
 function App() {
     return <Layout>
-        <Archive />
+                <Archive />
             </Layout>;
 }
 

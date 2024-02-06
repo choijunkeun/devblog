@@ -34,6 +34,9 @@ const PostDetail = () => {
         .then((response) => {
             setPost(response.data);
             setLoading(false);
+        })
+        .catch((error) => {
+            console.log(error);
         });
     }
 
@@ -83,12 +86,10 @@ const PostDetail = () => {
             <div className={styles.detailInnerWrap}>
                 <div className="detailHeader">
                     <h1 className={styles.detailTitle}>{post.title}</h1>
-
                     <p className={styles.postDate}>
-                        <AiOutlineCalendar /> Feb 4, 2024
+                        <AiOutlineCalendar /> Feb 6, 2024
                     </p>
                 </div>
-
                 <div className={styles.detailContentWrap}>
                     <div className={styles.detailSidebar}>
                         <div className={styles.toc}>
@@ -147,16 +148,15 @@ const PostDetail = () => {
                                       }
                                     }}>{post.content}           
                             </ReactMarkdown>
-                        <strong>
-                            <div className={styles.detailFooter}>
-                                <AiOutlineFolderOpen /> Categories: 
-                                <div className={styles.categoryPage}> JavaScript</div>
+                        <div className={styles.detailFooter}>
+                            <AiOutlineFolderOpen /> Categories: 
+                            <div className={styles.categoryPage}> Java</div>
+                            <div className={styles.pageNation}>
+                                <div className={styles.pageNationItem}>Prev</div>
+                                <div className={styles.pageNationItem}>Next</div>
                             </div>
-                        </strong>
-                        <div className={styles.pageNation}>
-                            <div className={styles.pageNationItem}>Prev</div>
-                            <div className={styles.pageNationItem}>Next</div>
                         </div>
+                        
                     </div>
                 </div>
             </div>

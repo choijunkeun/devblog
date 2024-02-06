@@ -39,8 +39,7 @@ const PostWrite = () => {
       await axios.post(`http://localhost:80/post`, JSON.stringify(post), { headers: { 'Content-Type': 'application/json' } })
           .then((response)=> {
             console.log("저장됨")
-            console.log(response.data);
-            return response.data;
+            navigate(`/${response.data.id}`);
           })
           .catch((error) => {
             console.log("error :: ", error);
