@@ -36,13 +36,14 @@
 - Java 17
 - SpringBoot 3.2.2
 - Spring Data JPA
+- QueryDsl
 
 ### Build
-- Gradlle
+- Gradle
 
 ### Database
 - Mysql
-- H2
+- H2(개발단계사용)
 
 ### 기타 라이브러리
 - Lombok
