@@ -1,6 +1,7 @@
 import Header from "./header/Header";
 import Navbar from "./navbar/Navbar";
 
+import { useState, useEffect } from "react";
 import styles from './Layout.module.css'
 import { Routes, Route } from "react-router-dom";
 import Archive from "./archive/Archive";

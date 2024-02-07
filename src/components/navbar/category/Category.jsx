@@ -2,13 +2,15 @@ import { useEffect } from "react";
 import styles from "./Category.module.css";
 import { Link } from "react-router-dom";
 
-const Category = ({ key, category }) => {
-    // list?sort=popular
+const Category = ({ category, categories }) => {
 
+    useEffect(()=> {
+        console.log("Category");
+    }, [])
     return (
         <li>
             <Link
-                key={category.key}
+                key={category.id}
                 className={styles.categoryList}
                 to={`/posts?tag=${category.key}`}
             >

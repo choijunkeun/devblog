@@ -29,8 +29,7 @@ const PostDetail = () => {
 
     // 게시글 조회
     const fetchPost = async () => {
-        await axios
-        .get(`http://localhost:80/post/${idx}`)
+        await axios.get(`http://localhost:80/post/${idx}`)
         .then((response) => {
             setPost(response.data);
             setLoading(false);
@@ -47,6 +46,7 @@ const PostDetail = () => {
     }
 
     useEffect(() => {
+        console.log("postDetail")
         fetchPost();
     }, []);
 

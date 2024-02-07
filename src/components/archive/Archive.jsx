@@ -1,13 +1,26 @@
 import { useParams, useSearchParams } from 'react-router-dom'
 import styles from './Archive.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Post from './Post';
+import axios from 'axios';
 
 const Archive = () => {
     const [posts, setPosts] = useState([]);
     const [searchParams, setSearchParams] = useSearchParams();
 
     const param = searchParams.get("tag");
+    const page = 0;
+
+    const getPosts = async () => {
+        await axios.get(`http://localhost:80/posts?tag=${param}&page=${page}&limit=10`).then((response)=> {
+
+        }).catch(error => console.log(error))
+    }
+
+    useEffect(()=> {
+        getPosts();
+        console.log("Archive")
+    },[param])
 
   return (
         <div className={styles.archiveWrap}>

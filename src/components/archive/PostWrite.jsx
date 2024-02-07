@@ -6,7 +6,7 @@ import axios from 'axios';
 import styled from "styled-components";
 import Tag from "./Tag";
 
-const PostWrite = () => {
+const PostWrite = ({ SetCategories }) => {
     const navigate = useNavigate();
 
     const [mdText, setMdText] = useState(); // markdown 텍스트 스테이트
@@ -18,6 +18,7 @@ const PostWrite = () => {
     });
 
     useEffect(() => {
+        console.log("postWrite")
         let postCopy = { ...post };
         postCopy.content = mdText;
         postCopy.category = [...tagList];
@@ -32,18 +33,18 @@ const PostWrite = () => {
     };
 
     const savePost = async (e) => {
-      e.preventDefault();
-      // 유효성 해야함
+        e.preventDefault();
+        // 유효성 해야함
 
-      // 저장요청
-      await axios.post(`http://localhost:80/post`, JSON.stringify(post), { headers: { 'Content-Type': 'application/json' } })
-          .then((response)=> {
+        // 저장요청
+        await axios.post(`http://localhost:80/post`, JSON.stringify(post), { headers: { 'Content-Type': 'application/json' } })
+        .then((response)=> {
             console.log("저장됨")
             navigate(`/${response.data.id}`);
-          })
-          .catch((error) => {
+        })
+        .catch((error) => {
             console.log("error :: ", error);
-          })
+        })
     };
 
     return (

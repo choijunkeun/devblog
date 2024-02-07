@@ -3,17 +3,19 @@ import Author from "./author/Author";
 import Category from "./category/Category";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
-
+import axios from 'axios';
 import { AiOutlineSetting } from "react-icons/ai"
-import axios from "axios";
-import { useQuery } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
+import { updateCategories } from "../../redux/categoriesSlice";
+
 
 const Navbar = () => {
-    const [categories, SetCategories] = useState([]);
-    const navigate = useNavigate();
+    let categories = useSelector((state)=> {return state.categories });
+    let dispatch = useDispatch();   // store.js에 요청 보내는 함수
 
-    const getCategories = useQuery("getCategories", ()=> {
-        axios.get("http://localhost:80/categories").then((response) => {
+    const navigate = useNavigate();
+    const getCategories = async () => {
+        await axios.get("http://localhost:80/categories").then((response) => {
             console.log("요청됨");
             // 데이타 전처리
             let resData = response.data;
@@ -23,18 +25,21 @@ const Navbar = () => {
             resData.map((category)=> {
                 return category.key = category.name.replace(reg, "").toLowerCase();
             })
-
+    
             // 카테고리 리스트 set
-            console.log("설마");
-            SetCategories(resData);
+            console.log("설마", resData);
+            // SetCategories(resData);
+            dispatch(updateCategories(resData));
         })
         .catch((error) => {
-            console.log("카테고리 에러 : ", error);
+            console.log("카테고리 불러오기 에러 : ", error);
         })
-
-    }, { staleTime : 5000 }) 
+    }
 
     useEffect(()=> {
+        getCategories();
+        console.log("useEffect()");
+        console.log(categories);
     }, []);
 
     const btnWritePage = () => {
@@ -54,7 +59,7 @@ const Navbar = () => {
                         <ul>
                             {
                                 categories.map((category, index) => {
-                                    return <Category key={category.id} category={category} />;
+                                    return <Category category={category} categories={categories}/>;
                                 })
                             }
                         </ul>
