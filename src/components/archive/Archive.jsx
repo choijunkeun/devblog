@@ -12,8 +12,8 @@ const Archive = () => {
     const page = 0;
 
     const getPosts = async () => {
-        await axios.get(`http://localhost:80/posts?tag=${param}&page=${page}&limit=10`).then((response)=> {
-
+        await axios.get(`http://localhost:80/posts?tag=${param}&page=${page}`).then((response)=> {
+            setPosts(response.data.content);
         }).catch(error => console.log(error))
     }
 

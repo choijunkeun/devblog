@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import Archive from "./archive/Archive";
 import PostDetail from "./archive/PostDetail";
 import PostWrite from "./archive/PostWrite";
+import Info from "./Info";
 
 const Layout = ({ children }) => {
     return (
@@ -15,7 +16,7 @@ const Layout = ({ children }) => {
                 <div className={styles.centerWrap}>
                 <Navbar />
                 <Routes>
-                <Route path="/" element={ <div>첫 화면</div>} />
+                <Route path="/" element={ <Info /> } />
                 <Route path="/posts" element={ <Archive />} />
                 <Route path="/:idx" element={ <PostDetail/> } />
                 <Route path="/write" element={ <PostWrite /> }/>

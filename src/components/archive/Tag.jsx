@@ -20,9 +20,12 @@ const Tag = ({tagList, setTagList}) => {
      * 태그 추가
      */
     const submitTagItem = () => {
+        let reg = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gim;
+        let inputTagName = tagItem.trim().replace(reg, "").toLowerCase();
+
         // 태그 중복 검사
         let duplicateCheck = tagList.filter((tag)=> {
-            return tag.name === tagItem
+            return tag.tagName === inputTagName
         });
 
         if(duplicateCheck.length !== 0) {
@@ -30,8 +33,10 @@ const Tag = ({tagList, setTagList}) => {
             return;
         }
 
+        console.log(inputTagName);
+
         let updatedTagList = [...tagList];
-        updatedTagList.push({name : tagItem});
+        updatedTagList.push({name : tagItem, tagName : inputTagName});
         setTagList(updatedTagList);
         setTagItem("");
     };

@@ -7,8 +7,10 @@ const Post = ({post}) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  console.log("post component:: ", post);
+
   const clickHandler = () => {
-    navigate(`${location.pathname}/${post.id}`) // PostDetail
+    navigate(`/${post.postId}`) // PostDetail
   }
 
   return (
@@ -18,9 +20,9 @@ const Post = ({post}) => {
           </div>
           <div className={styles.postDate}>
               <AiOutlineCalendar style={{ fontWeight: 400 }} />{" "}
-              {post.modifyDate}
+              {post.date}
           </div>
-          <div className={styles.postContent}> {post.content}</div>
+          {/* <div className={styles.postContent}> {post.content}</div> */}
       </div>
   );
 }

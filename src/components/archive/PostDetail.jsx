@@ -87,7 +87,7 @@ const PostDetail = () => {
                 <div className="detailHeader">
                     <h1 className={styles.detailTitle}>{post.title}</h1>
                     <p className={styles.postDate}>
-                        <AiOutlineCalendar /> Feb 6, 2024
+                        <AiOutlineCalendar /> {post.date}
                     </p>
                 </div>
                 <div className={styles.detailContentWrap}>
